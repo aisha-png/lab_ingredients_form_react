@@ -1,8 +1,21 @@
+body {
+    color: black;
+    background-color: rgb(129, 195, 194);
+    font-family: sans-serif;
+}
+
+.button #onClick {
+    display: block;
+    background-color: rgb(72, 144, 174);
+    size: 40px;
+}
+
 nav a{
     display: block;
     text-decoration: none;
     color: black;
     padding: 5px;
+    background-color: rgb(72, 170, 197);
     
     
 }
@@ -14,5 +27,10 @@ nav a{
 }
 
 nav > input {
-    
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
 }

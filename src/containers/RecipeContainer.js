@@ -36,7 +36,7 @@ const RecipeContainer = () => {
         const rating = inputRating.current.value;
         console.log(ingredients.length)
         console.log(name.length)
-        if(rating >= 1 && rating <= 5 && ingredients != "" && name != ""){
+        if(rating >= 1 && rating <= 5 && ingredients !== "" && name !== ""){
         const NewRecipe = {
             cakeName: name,
             ingredients: [ingredients],
@@ -49,17 +49,42 @@ const RecipeContainer = () => {
     }
     }
 
+    const inputSearch = useRef()
+
+    const searchCake = () => {
+        const search = inputSearch.current.value
+        let searchInput = search.toString().toLowerCase();
+        console.log(searchInput)
+        for(let i = 0; i < recipes.length; i++){
+            let c = recipes[i].cakeName.toLowerCase()
+            if(c !== searchInput){
+                recipes.splice(i,1)
+            }
+        }
+        const updatedRecipes = [recipes]
+        setRecipe(updatedRecipes);
+    }
+
     return(
         <>
+        
         <nav>
             <h1>Recipe List</h1>
             <a href="#form">Form</a>
-            <input type="text" placeholder="Search.."></input>
+            <input type="text" ref={inputSearch}></input>
+        
         </nav>
+        
+        <header>
+        <button onClick={searchCake}>Search</button>
+        </header>
+
+
+
         <RecipeList recipes={recipes}/>
         <input id="form" ref={inputName} type="text"></input>
-        <input ref={inputIngredients} type="text"></input>
-        <input ref={inputRating} type="text"></input>
+        <input id="form" ref={inputIngredients} type="text"></input>
+        <input id="form" ref={inputRating} type="text"></input>
         <NewRecipe handleButtonClick={addNewRecipe}/>
         </>
     )

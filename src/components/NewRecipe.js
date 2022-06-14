@@ -1,7 +1,7 @@
 const NewRecipe = ({handleButtonClick}) => {
     return (
         <>
-            <button onClick={handleButtonClick}>RegisterNewRecipe</button>
+            <button id="form" onClick={handleButtonClick}>RegisterNewRecipe</button>
         </>
         
         
