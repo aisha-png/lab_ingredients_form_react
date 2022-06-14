@@ -51,9 +51,13 @@ const RecipeContainer = () => {
 
     return(
         <>
-
+        <nav>
+            <h1>Recipe List</h1>
+            <a href="#form">Form</a>
+            <input type="text" placeholder="Search.."></input>
+        </nav>
         <RecipeList recipes={recipes}/>
-        <input ref={inputName} type="text"></input>
+        <input id="form" ref={inputName} type="text"></input>
         <input ref={inputIngredients} type="text"></input>
         <input ref={inputRating} type="text"></input>
         <NewRecipe handleButtonClick={addNewRecipe}/>
